@@ -34,6 +34,8 @@ Contoh environment tersedia di [frontend/.env.example](frontend/.env.example). T
 
 Backend dipasang dari ZIP sesuai panduan yang ada di dalam paket tersebut. Pastikan backend mengatur `APP_FRONTEND_ORIGIN=https://rumahflow.rstudiohub.com` dan `APP_COOKIE_SECURE=true`. Cookie sesi memakai `Path=/`, tanpa `Domain`, serta `HttpOnly`. Tidak perlu CORS wildcard.
 
+Untuk pembaruan transaksi 20 baris per halaman, pasang patch backend pagination (`Api.php` dan `Store.php`) terlebih dahulu, lalu redeploy frontend. Backend harus mendukung `GET /api/transactions?page=1&per_page=20` dengan respons `data.items` dan `data.pagination`. Tidak diperlukan migrasi database atau impor ulang Excel.
+
 ## Pengembangan
 
 Jalankan API CI3 lokal pada port 8088 dan izinkan origin frontend development pada environment PHP:
@@ -57,7 +59,8 @@ Buka http://127.0.0.1:3000. Proxy development default mengarah ke API lokal port
 ## Fitur
 
 - Dashboard bulanan, grafik arus kas, saldo per rekening, dan kategori pengeluaran.
-- Pemasukan, pengeluaran, upload nota, pencarian, filter, dan edit transaksi.
+- Pemasukan, pengeluaran, upload nota, pencarian, filter, edit, dan pagination transaksi 20 baris per halaman.
+- Periode awal mengikuti bulan berjalan dalam waktu Indonesia Barat; bulan riwayat tetap dapat dipilih.
 - Banyak rekening serta kartu kredit dengan limit, utang, dan sisa limit.
 - Adjustment saldo akhir, closing, pembukaan bulan baru, dan koreksi bulan lama.
 - Auto recharge berupa pencatatan pelunasan CC dari rekening pilihan saat membuka bulan.
