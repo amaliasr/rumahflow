@@ -1,0 +1,44 @@
+# Private financial data and runtime files
+/storage/
+/database/seed.json
+/database/seed-receipts/
+/docs/import-reconciliation.md
+/tests/.runtime*/
+/tests/.qa/
+/tests/qa-prepare.php
+/tests/backend-results.json
+/screenshots/
+*.sqlite
+*.sqlite-*
+*.db
+*.xlsx
+*.xls
+*.csv
+
+# Secrets (examples contain placeholders only)
+.env
+.env.*
+!.env.example
+/public/config.local.php
+*.pem
+*.key
+
+# Dependencies and generated builds
+/frontend/node_modules/
+/frontend/.next/
+/frontend/out/
+/database/ci3-download/
+/database/ci3-source.zip
+/tools/.cache/
+__pycache__/
+*.pyc
+*.log
+
+# Only PHP entrypoints are versioned here. Build assets from frontend/.
+/public/*
+!/public/index.php
+!/public/router.php
+!/public/.htaccess
+!/public/.user.ini
+!/public/config.example.php
+
